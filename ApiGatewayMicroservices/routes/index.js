@@ -1,9 +1,14 @@
-const express = require("express");
-const router = express.Router()
+import express from "express";
+import axios from "axios";
 
+const router = express.Router();
 
 router.all("/:api_name",(req,res)=>{
-    res.send(req.params.api_name+ "\n")
+    axios.get("http://localhost:0008/fakeapi").then((response)=>{
+        res.send(response.data)
+    }).catch(()=>{
+        res.send(req.params.api_name+ "\n"+"NOT DONE")
+    })
 })
 
-module.exports=router
+export default router

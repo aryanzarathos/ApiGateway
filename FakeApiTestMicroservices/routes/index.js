@@ -1,9 +1,7 @@
-const express = require("express");
+import express from "express";
 const router = express.Router()
 
-
-router.all("/:api_name",(req,res)=>{
-    res.send(req.params.api_name+ "\n")
+router.all("/fakeapi",(req,res)=>{
+    res.send("HELLO GUYS")
 })
-
-module.exports=router
+export default router
